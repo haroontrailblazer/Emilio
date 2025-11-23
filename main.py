@@ -1,6 +1,28 @@
 import matplotlib.pyplot as mp
 import streamlit as st
 
+    
+st.set_page_config(page_title="Emilio - Understand Your Interest. Plan Your Payments.", page_icon='https://github.com/haroontrailblazer/haroontrailblazer/blob/main/Project%20Pngs/Emilio.jpg?raw=true', layout="centered")
+st.markdown("""
+    <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        .stActionButton {display: none;}  /* hides the stop/rerun icon */
+    </style>
+""", unsafe_allow_html=True)
+
+
+# --- SEO META TAGS ---
+st.markdown("""
+<head>
+  <title>Emilio - EMI Calculator</title>
+  <meta name="description" content="Understand Your Interest. Plan Your Payments.">
+  <meta name="keywords" content="haroontrailblazer,EmilioHex,Haroon K M">
+  <meta name="robots" content="index, follow">
+</head>
+""", unsafe_allow_html=True)
+
+
 def calculateEMI(P,R,T): 
     Actual_amount_per_month = (P/T)if T!=0 else 0
     Intrest_amount_per_month = (P*(R/100)) if R!=0 else 0
@@ -18,27 +40,6 @@ def plot(P,R,T):
     fig,ax = mp.subplots(figsize=(5,2),dpi=500)
     ax.pie(sizes,labels=labels,colors=colors,autopct='%1.1f%%',shadow=True,explode=explode,textprops={'fontsize': 4, 'color': 'grey', 'weight':'bold','style':'italic', 'family': 'serif',})
     st.pyplot(fig)
-    
-    
-st.set_page_config(page_title="Emilio - Understand Your Interest. Plan Your Payments.", page_icon='https://github.com/haroontrailblazer/haroontrailblazer/blob/main/Project%20Pngs/Emilio.jpg?raw=true', layout="centered")
-st.markdown("""
-    <style>
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        .stActionButton {display: none;}  /* hides the stop/rerun icon */
-    </style>
-""", unsafe_allow_html=True)
-
-
-# --- SEO META TAGS ---
-st.markdown("""
-<head>
-  <title>Emilio - EMI Calculator</title>
-  <meta name="description" content="Understand Your Interest. Plan Your Payments.">
-  <meta name="keywords" content="haroontrailblazer, Servers, security, Server Health checker, Server strength, MomentoMonto, Haroon K M">
-  <meta name="robots" content="index, follow">
-</head>
-""", unsafe_allow_html=True)
 
 
 if "show_form" not in st.session_state:
