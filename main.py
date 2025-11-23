@@ -12,10 +12,10 @@ def plot(P,R,T):
     mp.style.use('dark_background')
     calculate = calculateEMI(P,R,T)
     sizes = [P, calculate[3]*T, calculate[0]] if T!=0 and P!=0 else [10,10,10]
-    labels = [f'Principal\n  ₹{sizes[0]}', f'Interest\n₹{sizes[1]:.2f}',f'Monthly Payment\n₹{sizes[2]:.2f}'] if T!=0 and P!=0 else ['No Data','No Data','No Data']
+    labels = [f'Principal - ₹{sizes[0]}', f'Interest - ₹{sizes[1]:.2f}',f'Monthly Payment - ₹{sizes[2]:.2f}'] if T!=0 and P!=0 else ['No Data','No Data','No Data']
     colors = ['#FFF1C9', '#EA5F89', '#57167E']
-    fig,ax = mp.subplots(figsize=(6,2),dpi=500)
-    ax.pie(sizes,labels=labels,colors=colors,autopct='%1.1f%%',shadow=True,wedgeprops={'linewidth': 1, 'edgecolor': 'black'},textprops={'fontsize': 5, 'color': 'grey', 'weight':'bold','style':'italic', 'family': 'serif',})
+    fig,ax = mp.subplots(figsize=(5,2),dpi=500)
+    ax.pie(sizes,labels=labels,colors=colors,autopct='%1.1f%%',shadow=True,wedgeprops={'linewidth': 1, 'edgecolor': 'black'},textprops={'fontsize': 4, 'color': 'grey', 'weight':'bold','style':'italic', 'family': 'serif',})
     st.pyplot(fig)
     
     
@@ -68,8 +68,6 @@ if not st.session_state.show_form:
    
             
 else:
-    cal=calculateEMI(st.session_state["P1"], st.session_state["R1"], st.session_state["N1"])
-    st.write(f"💵 Monthly EMI: ₹{cal[0]:.2f}")
     plot(st.session_state["P1"], st.session_state["R1"], st.session_state["N1"])
     
     
